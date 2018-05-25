@@ -176,7 +176,7 @@ def upload_img():
 			up_img_file.save(current_app.config['UPLOAD_IMG_FOLDER'] + save_filename)
 			session['filename'] = url_for('src.static', filename='upload/img/'+save_filename)
 		# 返回文件路径
-		return jsonify(result=session['filename'])
+		return jsonify(filename=session['filename'])
 
 
 ''' 漏洞报告查看页面 '''
