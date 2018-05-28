@@ -30,9 +30,9 @@ class RegistrationForm(Form):
     ''' 验证邮箱是否以@creditease.cn结尾，即是否为宜信员工邮箱 '''
     ''' 验证邮箱是否已注册过 '''
     def validate_email(self, field):
-        corp_mail_len = len(current_app.config['CORP_MAIL'])
-        if field.data[-corp_mail_len:] != current_app.config['CORP_MAIL']:
-            raise ValidationError(u'邮箱必须以 \'%s\' 结尾' %current_app.config['CORP_MAIL'])
+        #corp_mail_len = len(current_app.config['CORP_MAIL'])
+        #if field.data[-corp_mail_len:] != current_app.config['CORP_MAIL']:
+        #    raise ValidationError(u'邮箱必须以 \'%s\' 结尾' %current_app.config['CORP_MAIL'])
         if LoginUser.query.filter_by(email=field.data).first():
             raise ValidationError(u'邮箱已经存在')
 
